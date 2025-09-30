@@ -1,0 +1,38 @@
+# Model and dataset
+# model_name_or_path: HuggingFaceTB/SmolLM3-3B-Base
+model_name_or_path: HuggingFaceTB/SmolLM3-1.7B-Base
+dataset_name: HuggingFaceTB/smoltalk2
+dataset_config: SFT
+output_dir: ./smollm3-advanced-sft
+
+# Training hyperparameters
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 3e-5
+num_train_epochs: 2
+max_seq_length: 4096
+
+# Optimization
+warmup_steps: 200
+weight_decay: 0.01
+optim: adamw_torch
+lr_scheduler_type: cosine
+
+# Memory and performance
+bf16: true
+dataloader_num_workers: 4
+group_by_length: true
+remove_unused_columns: false
+
+# Logging and evaluation
+logging_steps: 25
+eval_steps: 250
+save_steps: 500
+evaluation_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+
+# Hub integration
+push_to_hub: false
+hub_model_id: your-username/smollm3-advanced
+hub_strategy: every_save

@@ -12,4 +12,7 @@ dependencies = [
     "transformers>=4.46.3",
     "trl>=0.12.1",
     "bitsandbytes>=0.45.0",
+    "trackio>=0.0.6",
+    "peft>=0.17.1",
+    "dotenv>=0.9.9",
 ]
